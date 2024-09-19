@@ -29,5 +29,6 @@ Cypress.Commands.add('iframe', { prevSubject: 'element' }, (subject) => {
     return cy.wrap(subject)
         .its('0.contentDocument.body') // Access the iframe's body
         .should('be.visible') // Ensure the body is visible
+        .and('not.be.empty') // Ensure the body is not empty
         .then(cy.wrap); // Wrap it for further Cypress commands
 });
